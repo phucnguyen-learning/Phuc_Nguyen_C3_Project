@@ -66,4 +66,8 @@ public class Restaurant {
         return name;
     }
 
+    //adding a feature using TDD
+    public int calculateTotalOrderValue(List<String> selectedItemNames) {
+        return 0;
+    }
 }

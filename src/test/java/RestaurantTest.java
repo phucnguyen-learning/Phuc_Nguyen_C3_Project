@@ -64,4 +64,21 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>ORDER TOTAL<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+    @Test
+    public void should_return_the_total_order_amount_for_1_selected_item(){
+        List<String> selectedItemNames = Collections.singletonList("Sweet corn soup");
+        int totalOrder = restaurant.calculateTotalOrderValue(selectedItemNames);
+        assertEquals(119, totalOrder);
+    }
+    @Test
+    public void should_return_the_total_order_amount_for_selected_items(){
+        List<String> selectedItemNames = Arrays.asList("Sweet corn soup", "Vegetable lasagne");
+        int totalOrder = restaurant.calculateTotalOrderValue(selectedItemNames);
+        assertEquals(388, totalOrder);
+    }
+
+    //<<<<<<<<<<<<<<<<<<<<<<<ORDER TOTAL>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
