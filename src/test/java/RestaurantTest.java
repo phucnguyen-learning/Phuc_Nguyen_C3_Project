@@ -80,5 +80,22 @@ class RestaurantTest {
         assertEquals(388, totalOrder);
     }
 
+    @Test
+    public void should_return_0_if_no_item_selected() {
+        List<String> selectedItemNames = new ArrayList<>();
+        int totalOrder = restaurant.calculateTotalOrderValue(selectedItemNames);
+        assertEquals(0, totalOrder);
+    }
+
+    @Test
+    public void should_return_correct_total_amount_when_changing_selected_items() {
+        List<String> selectedItemNames = Collections.singletonList("Vegetable lasagne");
+        int totalOrderAmountAtInitialSelected = restaurant.calculateTotalOrderValue(selectedItemNames);
+        selectedItemNames  = Arrays.asList("Sweet corn soup", "Vegetable lasagne");
+        int totalOrderAmountAfterChangingSelected = restaurant.calculateTotalOrderValue(selectedItemNames);
+        assertEquals(388, totalOrderAmountAfterChangingSelected);
+        assertEquals(119, totalOrderAmountAfterChangingSelected - totalOrderAmountAtInitialSelected);
+    }
+
     //<<<<<<<<<<<<<<<<<<<<<<<ORDER TOTAL>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }

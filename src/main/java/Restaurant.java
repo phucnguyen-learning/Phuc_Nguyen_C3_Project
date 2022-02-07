@@ -68,6 +68,11 @@ public class Restaurant {
 
     //adding a feature using TDD
     public int calculateTotalOrderValue(List<String> selectedItemNames) {
-        return 0;
+        int totalOrderValue = 0;
+        for(String itemName:selectedItemNames){
+            Item item = findItemByName(itemName);
+            totalOrderValue = totalOrderValue + item.getPrice();
+        }
+        return totalOrderValue;
     }
 }
